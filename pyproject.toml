@@ -1,28 +1,43 @@
+[tool.poetry]
+name = "fhir-resources"
+version = "0.0.0"
+description = ""
+authors = ["Md Nazrul Islam <email2nazrul@gmail.com>"]
+license = "License :: OSI Approved :: BSD License"
+readme = "README.md"
+packages = [{include = "fhir"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+pydantic = {extras = ["email"], version = "^2.5.2"}
+orjson = "^3.9.10"
+pyyaml = "^6.0.1"
+lxml = "^4.9.3"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+coverage = "^7.3.2"
+black = "^23.11.0"
+flake8 = "^6.1.0"
+flake8-isort = "^6.1.1"
+flake8-bugbear = "^23.12.2"
+requests = "^2.31.0"
+isort = "^5.13.0"
+mypy = "^1.7.1"
+typed-ast = "^1.5.5"
+importlib-metadata = "^7.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+jinja2 = "^3.1.2"
+markupsafe = "^2.1.3"
+colorlog = "^6.8.0"
+certifi = "^2023.11.17"
+fhirspec = "^0.4.0"
+zest-releaser = {extras = ["recommended"], version = "^9.1.1"}
+
 [build-system]
-# Minimum requirements for the build system to execute.
-requires = ["setuptools", "wheel"]  # PEP 508 specifications.
-
-[tool.black]
-line-length = 88
-target-version = ['py37']
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-
-  # The following are specific to Black, you probably don't want those.
-  | blib2to3
-  | tests/data
-)/
-'''
-
-[tool.pytest.ini_options]
-minversion = "6.0"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
